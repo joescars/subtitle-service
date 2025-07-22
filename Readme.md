@@ -46,7 +46,7 @@ cd whisper.cpp && make
 
 Download the tiny English model:
 ```bash
-wget https://huggingface.co/ggerganov/whisper.cpp/resolve/main/models/ggml-tiny.en.bin
+wget https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-tiny.en.bin
 ```
 
 ### Extract Audio and Transcribe

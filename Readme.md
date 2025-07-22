@@ -52,7 +52,8 @@ wget https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-tiny.en.bin
 ### Extract Audio and Transcribe
 ```bash
 ffmpeg -i input.mp4 -ar 16000 -ac 1 -f wav audio.wav
-./main -m ggml-tiny.en.bin -f audio.wav --output-srt subtitles.srt
+
+./build/bin/whisper-cli -m ggml-tiny.en.bin -f audio.wav --output-srt subtitles.srt
 ```
 
 ### Expected Speed

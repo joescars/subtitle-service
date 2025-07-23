@@ -51,9 +51,18 @@ wget https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-tiny.en.bin
 
 ### Extract Audio and Transcribe
 ```bash
+
+# extract audio single
 ffmpeg -i input.mp4 -ar 16000 -ac 1 -f wav audio.wav
 
+# extract audio batch
+for i in *.mp4; do ffmpeg -i "$i" -ar 16000 -ac 1 -f wav "${i%.mp4}.wav"; done
+
+# make subtitles
 ./build/bin/whisper-cli -m ggml-tiny.en.bin -f audio.wav --output-srt subtitles.srt
+
+# make subtitles batch
+for i in ./_input/*.wav; do ./build/bin/whisper-cli -m ggml-tiny.en.bin -f "$i" --output-srt "${i%.wav}.en.srt"; done
 ```
 
 ### Expected Speed
